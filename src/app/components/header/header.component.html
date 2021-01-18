@@ -1,11 +1,11 @@
-<header class="white">
+<header app-theme  class="">
     <div class="wrapper d-flex align-items-center space-between">
         <div>
             <h1>Where is the world?</h1>
         </div>
-        <div>
+        <div class="cursor-pointer" (click)="toggle()">
             <i class="fa fa-moon-o" aria-hidden="true"></i>
-            Dark Mode
+           <span > Dark Mode </span> 
         </div>
     </div>
 </header>

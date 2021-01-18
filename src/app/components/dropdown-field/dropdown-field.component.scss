@@ -7,16 +7,17 @@
         width: 250px;
         height: 7vh;
         padding: 20px 30px;
-        background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") no-repeat
-            right white;
+        // background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") no-repeat
+        //     right white;
+        // appearance: none; // must remove because dark theme 
+        // -moz-appearance: none; /* Firefox */
+        // -webkit-appearance: none; /* Safari and Chrome */
         background-position: right 30px center;
-        appearance: none;
-        -moz-appearance: none; /* Firefox */
-        -webkit-appearance: none; /* Safari and Chrome */
         color: hsl(0, 0%, 52%);
         font-size: 17px;
         font-weight: 100;
-
+        background: var(--background-header-lighter); 
+        color: var(--gray-placeholder);
         @media (max-width: 600px) {
             margin: 0 20px;
         }

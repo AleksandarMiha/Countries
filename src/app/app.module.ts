@@ -12,6 +12,9 @@ import { CountryPipe } from './shared/pipes/home/country.pipe';
 import { SingleCountryComponent } from './pages/single-country/single-country.component';
 import { SearchFieldComponent } from './components/search-field/search-field.component';
 import { DropdownFieldComponent } from './components/dropdown-field/dropdown-field.component';
+import { ThemeModule } from './theme/theme.module';
+import { lightTheme } from './theme/light-theme';
+import { darkTheme } from './theme/dark-theme';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +27,10 @@ import { DropdownFieldComponent } from './components/dropdown-field/dropdown-fie
   ],
   imports: [
     BrowserModule,
+    ThemeModule.forRoot({
+      themes: [lightTheme, darkTheme],
+      active: 'light'
+    }),
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
