@@ -12,16 +12,14 @@
                 flex-direction: column;
             }
         }
-        .body {
-            // width: 100%; 
+        .body { 
             margin: 0 -30px;  
             @media(max-width: 1000px){
                 justify-content: center;
             }
 
             .card {
-                width: 20%;
-                // height: 350px;
+                width: 20%; 
                 height: 30%;
                 min-height: 350px;
                 margin: 30px; 

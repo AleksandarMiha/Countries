@@ -14,6 +14,6 @@ export class HomeService {
 
   getAllCountries(){
     return this.http.get<any[]>(`${APP_BASE_URL}/all`)
-    .pipe(map(country => country.slice(0, 80)));
+    .pipe(map(country => country.slice(0, 150)));
   }
 }

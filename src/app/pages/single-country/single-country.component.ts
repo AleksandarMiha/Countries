@@ -17,17 +17,14 @@ export class SingleCountryComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.getSelectedCountry();
-    // this.test = sum;
+    this.getSelectedCountry(); 
   }
 
   getSelectedCountry(){
     this.sharingDataService.selectedCountry$
     .pipe(takeUntil(this.destroy$))
     .subscribe(
-      data => { 
-        console.log(data);
-        if(!data) return;
+      data => {  
          this.country = data 
       },
       err => console.log(err)

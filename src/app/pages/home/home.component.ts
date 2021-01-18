@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HomeService } from 'src/app/shared/services/api/home.service';
 import { SharingDataService } from 'src/app/shared/services/sharing-data/sharing-data.service';
-import { Subject} from 'rxjs'; 
+import { Subject } from 'rxjs';
 import { takeUntil, count } from 'rxjs/operators';
 import { populationWithDot } from 'src/app/shared/utilities/globalFunction';
 
@@ -27,39 +27,39 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.getCountries();
   }
 
-  receivedMessage(searchMessage){
-    if (searchMessage) { this.searchTerm = searchMessage; } 
+  receivedMessage(searchMessage) {
+    if (searchMessage) { this.searchTerm = searchMessage; }
   }
 
-  receivedRegion(selectedRegion){ 
-    if(selectedRegion) { 
-      if(selectedRegion === 'all') this.getCountries();
+  receivedRegion(selectedRegion) {
+    if (selectedRegion) {
+      if (selectedRegion === 'all') this.getCountries();
       this.filteredCountry = this.countries.filter(country => country.region == selectedRegion);
-     }
+    }
   }
-  
-  getCountries(){
+
+  getCountries() {
     this.homeService.getAllCountries()
-    .pipe(takeUntil(this.destroy$))
-    .subscribe(
-      data => {
-      this.countries = data;
-      this.filteredCountry = data;
-      // unique regions without empty string
-      this.regions =  [...new Set(this.countries.map(country => country.region).filter(Boolean))]   
-      },
-      err => console.log(err)
-    )
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
+        data => {
+          this.countries = data;
+          this.filteredCountry = data;
+          // unique regions without empty string
+          this.regions = [...new Set(this.countries.map(country => country.region).filter(Boolean))]
+        },
+        err => console.log(err)
+      )
   }
- 
 
-selectedCountry(country) { 
-  this.sharingDataService.selectedCountry(country); 
-}
 
-ngOnDestroy() {
-  this.destroy$.next(true); 
-  this.destroy$.unsubscribe();
-}
+  selectedCountry(country) {
+    this.sharingDataService.selectedCountry(country);
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
+  }
 
 }
