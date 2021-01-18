@@ -1,0 +1,95 @@
+<div class="container very-light-gray">
+    <app-header></app-header>
+    <div class="wrapper">
+        <div class="header-box">
+            <header>
+                <button class="white shadow font-w-200" [routerLink]="['/']">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    Back
+                </button>
+            </header>
+        </div>
+
+        <div class="main" *ngIf="country">
+            <div class="box-info d-flex align-items-center">
+                <div class="img-holder">
+                    <img [src]="country.flag" alt="country flag">
+                </div>
+                <div class="content">
+                    <h1> {{ country.name }}</h1> <br>
+                    <div class="info d-flex">
+
+                        <div class="first-box-info">
+                            <div class="d-flex align-items-center">
+                                <p class="unset-margin-p margin-5"> Native Name:&nbsp; </p>
+                                <span class="font-w-200">
+                                    {{ country.nativeName }}
+                                </span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <p class="unset-margin-p margin-5"> Population:&nbsp; </p>
+                                <span class="font-w-200">
+                                    {{ dotInPopulation(country.population) }} 
+                                </span>
+                            </div>
+
+                            <div class="d-flex align-items-center">
+                                <p class="unset-margin-p margin-5"> Region:&nbsp;
+                                    <span class="font-w-200"> {{ country.region }} </span>
+                                </p>
+                            </div>
+
+
+                            <div class="d-flex align-items-center">
+                                <p class="unset-margin-p margin-5"> Sub Regions:&nbsp;
+                                    <span class="font-w-200"> 
+                                        {{ country.subregion }}
+                                    </span></p>
+                            </div>
+
+
+                            <div class="d-flex align-items-center">
+                                <p class="unset-margin-p margin-5"> Capital:&nbsp; 
+                                    <span class="font-w-200">
+                                        {{ country.capital }}
+                                    </span></p>
+                            </div>
+
+                        </div>
+                        <div class="second-box-info">
+                            <div class="d-flex align-items-center">
+                                <p class="unset-margin-p margin-5"> Top Level Domain:&nbsp; </p>
+                                <span class="font-w-200"
+                                    *ngFor="let topLevel of country.topLevelDomain; let isLast=last">
+                                    {{ topLevel }}{{isLast ? '' : ',&nbsp;'}}
+                                </span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <p class="unset-margin-p margin-5"> Currencies:&nbsp; </p>
+                                <span class="font-w-200" *ngFor="let currencie of country.currencies; let isLast=last">
+                                    {{ currencie.name }}{{isLast ? '' : ',&nbsp;'}}
+
+                                </span>
+                            </div>
+                            <div class="d-flex align-items-center white-space-no-wrap">
+                                <p class="unset-margin-p margin-5"> Languages: &nbsp; </p>
+                                <span class="font-w-200" *ngFor="let languages of country.languages; let isLast=last">
+                                    {{ languages.name }}{{isLast ? '' : ',&nbsp;'}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tags d-flex align-items-center">
+                        <p>Border countries: </p>
+                        <div>
+                            <button class="white shadow font-w-200 tag-button"
+                                *ngFor="let singleCountry of country.borders">
+                                {{ singleCountry }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

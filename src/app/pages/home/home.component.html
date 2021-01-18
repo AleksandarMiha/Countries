@@ -1,0 +1,40 @@
+<div class="container very-light-gray">
+    <app-header></app-header>
+
+    <div class="wrapper">
+        <div class="header d-flex space-between">
+            <app-search-field (sendEvent)="receivedMessage($event)"> </app-search-field>
+            <app-dropdown-field [regions]="regions" (sendEventRegion)="receivedRegion($event)"> </app-dropdown-field>
+        </div>
+        <div class="body d-flex space-between flex-wrap">
+            <div class="card d-flex flex-direction-column cursor-pointer shadow"
+                *ngFor="let country of filteredCountry | country:searchTerm; let i=index"
+                (click)="selectedCountry(country)" [routerLink]="['/country', country.name]">
+                <img [src]="country.flag" alt="flag icon" >
+                <div class="text-content white">
+                    <h4><b>{{ country.name }} </b></h4>
+
+                    <div class="d-flex align-items-center">
+                        <p class="unset-margin-p"> Population:&nbsp;</p> 
+                        <span
+                            class="font-w-200"> 
+                            {{ dotInPopulation(country.population) }} 
+                        </span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <p class="unset-margin-p"> Region:&nbsp;</p>
+                         <span class="font-w-200"> 
+                             {{ country.region }}
+                        </span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <p class="unset-margin-p"> Capital:&nbsp;</p> 
+                        <span class="font-w-200"> 
+                            {{ country.capital }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

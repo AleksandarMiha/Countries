@@ -1,0 +1,28 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+button {
+    outline: none;
+    border: 0;
+}
+
+.unset-margin-p {
+    margin: 0;
+}
+
+textarea:focus, input:focus, select:focus{
+    outline: none;
+}
+
+input, select {
+    border:none;
+}
+

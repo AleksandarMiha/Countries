@@ -1,0 +1,17 @@
+header {
+    .wrapper {
+        max-width: 1440px; 
+        margin: 0 auto;
+
+        h1 {
+            @media(max-width: 600px){
+                padding: 0 20px;
+                font-size: 18px;
+            }
+        }
+
+        i {
+            margin-right: 10px;
+        }
+    }
+}
